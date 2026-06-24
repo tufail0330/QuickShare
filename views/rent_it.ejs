@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rent Bike</title>
+  </head>
+
+  <body style="font-family: Arial; background: #f9fafb; margin: 0">
+    <!-- Back -->
+    <div style="padding: 20px">
+      <a href="/rent" style="text-decoration: none; color: #2563eb">← Back</a>
+    </div>
+
+    <div
+      style="
+        width: 80%;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+      "
+    >
+      <!-- BIKE INFO -->
+      <div style="display: flex; gap: 30px">
+        <img src="/images/uploads/<%= bike.image %>" style="width: 250px" />
+
+        <div>
+          <h2><%= bike.bikeName %></h2>
+          <h3 style="color: red">₹<%= bike.pricePerDay %> / day</h3>
+          <p><%= bike.description %></p>
+        </div>
+      </div>
+
+      <hr style="margin: 30px 0" />
+
+      <!-- BOOKING -->
+      <h3>Select Booking Details</h3>
+
+      <form action="/confirm-booking" method="POST">
+        <label>Start Date:</label><br />
+        <input type="date" name="date" style="padding: 10px" />
+        <br /><br />
+
+        <label>Number of Days:</label><br />
+        <input type="number" name="days" min="1" style="padding: 10px" />
+        <br /><br />
+
+        <input type="hidden" name="bikeName" value="<%= bike.bikeName %>" />
+
+        <button>Confirm Booking</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Bike</title>
+  </head>
+
+  <body style="font-family: Arial; background: #f3f4f6">
+    <h1 style="text-align: center; padding: 30px">Edit Bike</h1>
+
+    <div
+      style="
+        width: 50%;
+        margin: auto;
+        background: white;
+        padding: 30px; 
+        border-radius: 10px;
+      "
+    >
+      <form action="/update-bike/<%= bike._id %>" method="POST">
+        <label>Bike Name</label><br />
+        <input
+          type="text"
+          name="bikeName"
+          value="<%= bike.bikeName %>"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        /><br />
+
+        <label>Bike Number</label><br />
+        <input
+          type="text"
+          name="bikeNumber"
+          value="<%= bike.bikeNumber %>"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        /><br />
+
+        <label>Price Per Day</label><br />
+        <input
+          type="number"
+          name="pricePerDay"
+          value="<%= bike.pricePerDay %>"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        /><br />
+
+        <label>Description</label><br />
+        <textarea
+          name="description"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        >
+<%= bike.description %></textarea
+        >
+
+        <button
+          style="
+            width: 100%;
+            padding: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+          "
+        >
+          Update Bike
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

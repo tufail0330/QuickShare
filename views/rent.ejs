@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rent Bikes</title>
+  </head>
+
+  <body style="margin: 0; font-family: Arial; background: #f9fafb">
+    <div style="margin-top: 20px; margin-left: 40px">
+      <a
+        href="/"
+        style="
+          padding: 10px 15px;
+
+          color: #1aafd0;
+          border-radius: 8px;
+        "
+        >Back to home</a
+      >
+    </div>
+
+    <!-- Heading -->
+    <h1 style="text-align: center; padding: 30px">Available Bikes for Rent</h1>
+   <form
+  action="/rent"
+  method="GET"
+  style="
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    gap: 10px;
+  "
+>
+
+  <input
+    type="text"
+    name="search"
+    placeholder="Search bikes..."
+    style="
+      flex:1;
+      padding:12px;
+      border-radius:8px;
+      border:1px solid gray;
+    "
+  >
+     <select
+  name="sort"
+  style="
+    padding:12px;
+    border-radius:8px;
+  "
+>
+
+  <option value="">
+    Sort By
+  </option>
+
+  <option value="low">
+    Lowest Price
+  </option>
+
+  <option value="high">
+    Highest Price
+  </option>
+
+</select>
+  <button
+    style="
+      padding:12px 20px;
+      background:#7c3aed;
+      color:white;
+      border:none;
+      border-radius:8px;
+    "
+  >
+    Search
+  </button>
+ 
+</form>
+    <% bikes.forEach(function(bike){ %>
+
+<div
+  style="
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    background: white;
+    border-radius: 10px;
+  "
+>
+  
+  <div>
+   
+     <img
+    src="/images/uploads/<%= bike.image %>"
+    style="width: 200px"
+  />
+
+    <h2><%= bike.bikeName %></h2>
+
+    <h3 style="color: red">
+      ₹<%= bike.pricePerDay %> / day
+    </h3>
+<p>
+  <b>Availability:</b>
+  <%= bike.availability %>
+</p>
+    <p>
+      <%= bike.description %>
+    </p>
+  
+   <div style="margin-top: 10px">
+
+  <a
+    href="/rent/view/<%= bike._id %>"
+    style="
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      margin-right: 10px;
+      display: inline-block;
+    "
+  >
+    View
+  </a>
+
+  <a
+    href="/rent/rent_it/<%= bike._id %>"
+    style="
+      padding: 10px 20px;
+      background: red;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    "
+  >
+    Rent It
+  </a>
+
+</div>
+
+  </div>
+
+</div>
+
+<% }) %>
+  </body>
+</html>

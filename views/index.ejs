@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QuickShare</title>
+  </head>
+
+  <body style="margin: 0; font-family: Arial, sans-serif; background: #ffffff">
+    <!-- Navbar -->
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f3e8ff;
+      "
+    >
+      <h2 style="color: #6b21a8">QuickShare</h2>
+      <div>
+        <a
+          href="#"
+          style="margin-right: 15px; text-decoration: none; color: #6b21a8"
+          >Home</a
+        >
+        <a
+          href="#"
+          style="margin-right: 15px; text-decoration: none; color: #6b21a8"
+          >Bikes</a
+        >
+
+        <% if(isLoggedIn){ %>
+       <a
+    href="/my-bookings"
+    style="
+      margin-right: 15px;
+      text-decoration: none;
+      color: #6b21a8;
+    "
+  >
+    My Rides
+  </a>
+
+  <a
+    href="/my-bikes"
+    style="
+      margin-right: 15px;
+      text-decoration: none;
+      color: #6b21a8;
+    "
+  >
+    My Bikes
+  </a>
+  <a
+    href="/profile"
+    style="text-decoration: none; color: #6b21a8"
+  >
+    Profile
+  </a>
+  <a
+  href="/logout"
+  style="
+    margin-left: 15px;
+    text-decoration: none;
+    color: #dc2626;
+  "
+>
+  Logout
+</a>
+
+<% } else { %>
+
+  <a
+    href="/login"
+    style="text-decoration: none; color: #6b21a8"
+  >
+    Login/Signup
+  </a>
+
+<% } %>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div
+      style="
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 60px 80px;
+        background: #fafafa;
+      "
+    >
+      <div style="max-width: 50%; margin-top: 20px">
+        <h1
+          style="
+            font-size: 60px;
+            font-weight: 900;
+            color: #111827;
+            line-height: 1;
+          "
+        >
+          Rent. Share. Ride.
+        </h1>
+
+        <h1
+          style="
+            font-size: 60px;
+            font-weight: 900;
+            color: #7c3aed;
+            margin-top: -10px;
+          "
+        >
+          All in One Platform
+        </h1>
+
+        <p style="font-size: 20px; color: #6b7280; margin-top: 20px">
+          List your bike or car and earn money, or rent one anytime for your
+          travel needs.
+        </p>
+
+        <!-- OPTIONS -->
+        <div style="margin-top: 35px; display: flex; gap: 20px">
+          <a
+            href="/rent"
+            style="
+              flex: 1;
+              padding: 18px;
+              background: #7c3aed;
+              color: white;
+              text-align: center;
+              border-radius: 12px;
+              font-size: 20px;
+              font-weight: bold;
+              text-decoration: none;
+              display: inline-block;
+            "
+          >
+            Rent a Bike
+          </a>
+
+          <a
+            href="/list"
+            style="
+              flex: 1;
+              padding: 18px;
+              background: #ede9fe;
+              color: #7c3aed;
+              border: 2px solid #7c3aed;
+              text-align: center;
+              border-radius: 12px;
+              font-size: 20px;
+              font-weight: bold;
+              text-decoration: none;
+              display: inline-block;
+            "
+          >
+            List Your Bike
+          </a>
+        </div>
+      </div>
+
+      <div style="background: #ede9fe; padding: 30px; border-radius: 30px">
+        <img src="/images/bike.png" style="width: 420px; border-radius: 20px" />
+      </div>
+    </div>
+
+    <!-- Offers-->>
+    <div style="padding: 80px; background: #fafafa; text-align: center">
+      <h1 style="font-size: 42px; font-weight: 900; color: #111827">
+        What we offer
+      </h1>
+
+      <div
+        style="width: 90px; height: 5px; background: #a78bfa; margin: 10px auto"
+      ></div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          margin-top: 60px;
+        "
+      >
+        <!-- CARD 1-->
+        <div
+          style="
+            width: 300px;
+            border-radius: 20px;
+            background: white;
+            padding: 20px;
+            text-align: center;
+          "
+        >
+          <div style="height: 300px; overflow: hidden; border-radius: 15px">
+            <img
+              src="images/quick_booking.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+
+          <h3 style="margin-top: 20px; color: #7c3aed">Book Anytime</h3>
+          <p style="color: #6b7280">
+            Instantly book bikes or cars anytime. Smooth and fast process.
+          </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          style="
+            width: 300px;
+            border-radius: 20px;
+            background: white;
+            padding: 20px;
+            text-align: center;
+          "
+        >
+          <div style="height: 300px; overflow: hidden; border-radius: 15px">
+            <img
+              src="images/earn.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+
+          <h3 style="margin-top: 20px; color: #7c3aed">
+            Earn by ride your vehicle
+          </h3>
+          <p style="color: #6b7280">
+            List your bike or car and start earning when you're not using it.
+          </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          style="
+            width: 300px;
+            border-radius: 20px;
+            background: white;
+            padding: 20px;
+            text-align: center;
+          "
+        >
+          <div style="height: 300px; overflow: hidden; border-radius: 15px">
+            <img
+              src="images/ride_anytime.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+
+          <h3 style="margin-top: 20px; color: #7c3aed">Ride Anytime</h3>
+          <p style="color: #6b7280">
+            Travel anytime with flexible rental options across the city.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- ✅ IMPROVED SECOND SECTION -->
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 80px;
+        background: #ffffff;
+      "
+    >
+      <!-- LEFT CONTENT -->
+      <div style="max-width: 50%">
+        <p style="color: #7c3aed; font-weight: bold; letter-spacing: 1px">
+          SMART MOBILITY PLATFORM
+        </p>
+
+        <h1 style="font-size: 48px; color: #111827; line-height: 1.2">
+          Rent, Share & Ride <br />
+          <span style="color: #7c3aed">All in One Place</span>
+        </h1>
+
+        <p style="color: #6b7280; font-size: 18px; margin-top: 15px">
+          List your vehicle and earn money, or rent one anytime for your travel
+          needs. QuickShare gives you complete control over how you travel.
+        </p>
+
+        <button
+          style="
+            margin-top: 25px;
+            padding: 14px 30px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+          "
+        >
+          Get Started
+        </button>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div
+        style="
+          background: #ede9fe;
+          padding: 25px;
+          border-radius: 25px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        "
+      >
+        <img
+          src="images/image2.png"
+          style="width: 420px; border-radius: 20px"
+        />
+      </div>
+    </div>
+  </body>
+</html>

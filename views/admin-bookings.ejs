@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>All Bookings</title>
+</head>
+
+<body style="font-family:Arial;background:#f3f4f6;">
+
+  <h1 style="text-align:center;">
+    All Bookings
+  </h1>
+
+  <% bookings.forEach(function(booking){ %>
+
+    <div
+      style="
+        background:white;
+        width:70%;
+        margin:20px auto;
+        padding:20px;
+        border-radius:10px;
+      "
+    >
+
+      <h2>
+        <%= booking.bikeName %>
+      </h2>
+
+      <p>
+        <b>User:</b>
+        <%= booking.userEmail %>
+      </p>
+
+      <p>
+        <b>Start Date:</b>
+        <%= booking.bookingStart.toDateString() %>
+      </p>
+
+      <p>
+        <b>End Date:</b>
+        <%= booking.bookingEnd.toDateString() %>
+      </p>
+
+      <p>
+        <b>Status:</b>
+        <%= booking.status %>
+      </p>
+
+    </div>
+
+  <% }) %>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+
+  <body
+    style="
+      margin: 0;
+      font-family: Arial;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    "
+  >
+    <div
+      style="
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        width: 350px;
+      "
+    >
+      <h1 style="text-align: center; color: #7c3aed">Login</h1>
+
+      <form action="/login" method="POST">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          required
+          style="
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+          "
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+          required
+          style="
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+          "
+        />
+
+        <button
+          style="
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+          "
+        >
+          Login
+        </button>
+      </form>
+
+      <p style="text-align: center; margin-top: 20px">
+        Don't have an account?
+        <a href="/signup" style="color: #7c3aed">Signup</a>
+      </p>
+    </div>
+  </body>
+</html>

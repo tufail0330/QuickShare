@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List Your Bike</title>
+  </head>
+
+  <body style="margin: 0; font-family: Arial; background: #f9fafb">
+    <div style="margin-top: 20px; margin-left: 40px">
+      <a
+        href="/"
+        style="padding: 10px 15px; color: #1aafd0; border-radius: 8px"
+      >
+        Back to home
+      </a>
+    </div>
+
+    <h1 style="text-align: center; padding: 30px">List Your Bike 🚲</h1>
+
+    <div
+      style="
+        width: 50%;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+      "
+    >
+      <form action="/add-bike" method="POST" enctype="multipart/form-data">
+        <!-- Bike Name -->
+        <label>Bike Name</label><br />
+        <input
+          type="text"
+          name="bikeName"
+          placeholder="e.g. Pulsar 220"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        /><br />
+
+        <!-- Bike Number -->
+        <label>Bike Number</label><br />
+        <input
+          type="text"
+          name="bikeNumber"
+          placeholder="e.g. MP04AB1234"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        /><br />
+
+        <!-- Price per Day -->
+        <label>Price per Day (₹)</label><br />
+        <input
+          type="number"
+          name="pricePerDay"
+          placeholder="e.g. 800"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        /><br />
+
+        <!--Image -->
+        <label>Image Name</label><br />
+
+        <input
+          type="file"
+          name="image"
+          placeholder="e.g. pulsar.png"
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        />
+
+        <!-- Description -->
+        <label>Description</label><br />
+        <textarea
+          name="description"
+          placeholder="Write something about your bike..."
+          style="width: 100%; padding: 10px; margin: 10px 0"
+        ></textarea>
+
+        <!-- Button -->
+        <button
+          type="submit"
+          style="
+            width: 100%;
+            padding: 15px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+          "
+        >
+          List My Bike
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>All Bikes</title>
+</head>
+
+<body style="font-family:Arial;background:#f3f4f6;">
+
+  <h1 style="text-align:center;">
+    All Bikes
+  </h1>
+
+  <% bikes.forEach(function(bike){ %>
+
+    <div
+      style="
+        background:white;
+        width:70%;
+        margin:20px auto;
+        padding:20px;
+        border-radius:10px;
+      "
+    >
+
+      <img
+        src="/images/uploads/<%= bike.image %>"
+        style="width:200px;"
+      >
+
+      <h2>
+        <%= bike.bikeName %>
+      </h2>
+
+      <p>
+        <b>Owner:</b>
+        <%= bike.ownerEmail %>
+      </p>
+
+      <p>
+        <b>Price:</b>
+        ₹<%= bike.pricePerDay %>
+      </p>
+
+      <p>
+        <b>Availability:</b>
+        <%= bike.availability %>
+      </p>
+    
+      <a
+  href="/admin/delete-bike/<%= bike._id %>"
+  style="
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 20px;
+    background:red;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+  "
+>
+  Delete Bike
+</a>
+
+    </div>
+
+  <% }) %>
+
+</body>
+
+</html>

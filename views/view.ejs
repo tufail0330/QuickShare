@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bike Details</title>
+  </head>
+
+  <body style="font-family: Arial; background: #f3f4f6; margin: 0">
+    <div style="padding: 20px">
+      <a href="/rent" style="text-decoration: none; color: #2563eb"> ← Back </a>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        gap: 30px;
+        width: 85%;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+      "
+    >
+      <!-- IMAGE -->
+      <div>
+        <img src="/images/uploads/<%= bike.image %>" style="width: 400px" />
+      </div>
+
+      <!-- CONTENT -->
+      <div style="max-width: 500px">
+        <h2><%= bike.bikeName %></h2>
+
+        <p>
+          <b>Bike Number:</b>
+          <%= bike.bikeNumber %>
+        </p>
+
+        <p style="color: #4b5563; line-height: 1.6"><%= bike.description %></p>
+
+        <hr style="margin: 20px 0" />
+
+        <h3>Per Day Rent: ₹<%= bike.pricePerDay %></h3>
+
+        <a
+          href="/rent/rent_it/<%= bike._id %>"
+          style="
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #dc2626;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+          "
+        >
+          Rent Now
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Bookings</title>
+</head>
+
+<body style="font-family: Arial; background:#f3f4f6;">
+
+  <h1 style="text-align:center;">My Bookings</h1>
+
+  <% bookings.forEach(function(booking){ %>
+
+    <div
+      style="
+        background:white;
+        width:70%;
+        margin:20px auto;
+        padding:20px;
+        border-radius:10px;
+      "
+    >
+     
+      <h2><%= booking.bikeName %></h2>
+
+    <p>
+  <b>Start Date:</b>
+  <%= booking.bookingStart.toDateString() %>
+</p>
+
+<p>
+  <b>End Date:</b>
+  <%= booking.bookingEnd.toDateString() %>
+</p>
+
+<p>
+  <b>Total Days:</b>
+  <%= booking.totalDays %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= booking.status %>
+</p>
+
+<a
+  href="/complete-booking/<%= booking._id %>"
+  style="
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 20px;
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+  "
+>
+  Mark Completed
+</a>
+
+    </div>
+
+  <% }) %>
+
+</body>
+</html>
