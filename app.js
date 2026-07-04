@@ -56,7 +56,6 @@ const upload = multer({ storage: storage });
 app.get("/", function (req, res) {
   res.render("index");
 });
-
 app.get("/rent", async function (req, res) {
   let search = req.query.search;
   let sort = req.query.sort;
@@ -73,18 +72,25 @@ app.get("/rent", async function (req, res) {
   let bikesQuery = bikeModel.find(query);
 
   if (sort === "low") {
-    bikesQuery = bikesQuery.sort({
-      pricePerDay: 1,
-    });
+    bikesQuery = bikesQuery.sort({ pricePerDay: 1 });
   }
 
   if (sort === "high") {
-    bikesQuery = bikesQuery.sort({
-      pricePerDay: -1,
-    });
+    bikesQuery = bikesQuery.sort({ pricePerDay: -1 });
   }
 
   let bikes = await bikesQuery;
+
+  for (let bike of bikes) {
+    let booking = await bookingModel
+      .findOne({
+        bikeName: bike.bikeName,
+        status: "confirmed",
+      })
+      .sort({ bookingEnd: -1 });
+
+    bike.currentBooking = booking;
+  }
 
   res.render("rent", { bikes });
 });
@@ -249,7 +255,7 @@ app.get(
 );
 
 app.get("/admin", isLoggedIn, isAdmin, function (req, res) {
-  res.send("Welcome Admin");
+  res.render("admin");
 });
 
 app.get("/my-bookings", isLoggedIn, async function (req, res) {
@@ -282,7 +288,21 @@ app.post("/confirm-booking", isLoggedIn, async function (req, res) {
   });
 
   if (alreadyBooked) {
-    return res.send("Bike already booked for this date");
+    let start = alreadyBooked.bookingStart.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+
+    let end = alreadyBooked.bookingEnd.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+
+    return res.send(
+      `Bike is already booked from ${start} to ${end}. Please choose another date.`,
+    );
   }
 
   let booking = await bookingModel.create({

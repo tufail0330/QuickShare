@@ -103,8 +103,38 @@
       ₹<%= bike.pricePerDay %> / day
     </h3>
 <p>
-  <b>Availability:</b>
-  <%= bike.availability %>
+
+<b>Availability:</b>
+
+<% if(bike.currentBooking){ %>
+
+<span style="color:red;font-weight:bold;">
+
+Booked from
+<%= bike.currentBooking.bookingStart.toLocaleDateString("en-IN",{
+day:"numeric",
+month:"long",
+year:"numeric"
+}) %>
+
+to
+
+<%= bike.currentBooking.bookingEnd.toLocaleDateString("en-IN",{
+day:"numeric",
+month:"long",
+year:"numeric"
+}) %>
+
+</span>
+
+<% } else { %>
+
+<span style="color:green;font-weight:bold;">
+Available
+</span>
+
+<% } %>
+
 </p>
     <p>
       <%= bike.description %>
